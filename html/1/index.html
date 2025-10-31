@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O18</title>
+</head>
+<body>
+  <h1>Enter your age</h1>
+  <input id="input" type="text" placeholder="Enter your age">
+  <input id="name" type="text" placeholder="Enter your name">
+  <button id="button">Check allowance</button>
+  <h6 id="text"></h6>
+
+  <script>
+    const input = document.getElementById("input");
+    const button = document.getElementById("button");
+    const text = document.getElementById("text");
+    const nameInput = document.getElementById("name");
+
+    button.addEventListener("click", () => {
+      const age = parseInt(input.value);
+      const name = nameInput.value.trim();
+
+      if (isNaN(age)) {
+        text.textContent = "Please enter a valid number!";
+        text.style.color = "orange";
+      } else if (age >= 18) {
+        text.textContent = `✅ You are allowed! (18+) Mr. ${name || "Anonymous"}`;
+        text.style.color = "green";
+      } else {
+        text.textContent = "❌ You are not allowed! (Under 18)";
+        text.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
